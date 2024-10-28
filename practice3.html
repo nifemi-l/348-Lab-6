@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="utf-8">
+        <title>Nifemi Lawal's Practice 3</title>
+    </head>
+    <body> 
+        <label>Enter Password: <input type="password" id="password-1"></label>
+        <br><br>
+        <label>Verify Password: <input type="password" id="password-2"></label>
+        <br><br>
+        <button class="submit-btn" onclick="validatePasswords()">Submit</button>
+    </body>
+    <script>
+        function validatePasswords() {
+            const pass1 = document.getElementById("password-1").value;
+            const pass2 = document.getElementById("password-2").value;
+
+            if (!correctLength(pass1)) { 
+                sendAlert('Password is too long');
+                return;
+            }
+
+            if (pass1 !== pass2) { 
+                sendAlert('Passwords do not match');
+                return;
+            }
+            
+            sendAlert('Passwords match');
+        }
+
+        function correctLength(text) {
+            return text.length <= 8;
+        }
+
+        function sendAlert(message) { 
+            alert(message);
+        }
+    </script>
+</html>
